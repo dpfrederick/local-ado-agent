@@ -1,0 +1,13 @@
+services:
+  agent:
+    image: harbor.clarkinc.biz/webops/azure-devops/build
+    environment:
+      - AZP_AGENT_NAME=dpfrederick-test
+      - AZP_URL=https://tfs.test.clarkinc.biz/DefaultCollection
+      - AZP_TOKEN_FILE=/azp/.token
+      - AZP_POOL=Linux-dev
+      - AZP_AGENT_VERSION=3.225.0
+      - ASSETS_ENDPOINT=internalassets.webstaurantstore.com
+      - NODE_EXTRA_CA_CERTS=/usr/local/share/ca-certificates/clarkinc-256.crt
+    volumes:
+      - ./test.token:/azp/.token
